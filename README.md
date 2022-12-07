@@ -1,2 +1,3 @@
-# pyPicView
-Simple photo view on python with PySide2
+# PyPicView
+
+Simple photo viewer on python with PySide6
