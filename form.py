@@ -71,7 +71,6 @@ class MainWindow(QMainWindow):
         resize.triggered.connect(self.resize_proc)
         effect.triggered.connect(self.effect_proc)
         image_info.triggered.connect(self.image_proc)
-        
         bar = self.menuBar()
         file = bar.addMenu('Файл')
         open_file = file.addAction('Открыть')
