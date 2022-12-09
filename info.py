@@ -1,11 +1,11 @@
 from PySide6.QtWidgets import QDialog
 
 class InfoDialog(QDialog):
-        DEFAULT_W = 300
+        DEFAULT_W = 150
         DEFAULT_H = 50
         DEFAULT_ICON_PATH = 'icons/app-icon.png'
-        DEFAULT_IMG_W = 150
-        DEFAULT_IMG_H = 100
+        DEFAULT_IMG_W = 256
+        DEFAULT_IMG_H = 256
     
         def __init__(self):
             from screen import Screen
@@ -25,8 +25,12 @@ class InfoDialog(QDialog):
             layout = QVBoxLayout()
 
             image = QLabel()
-            image.setPixmap(QPixmap(self.DEFAULT_ICON_PATH))
             image.resize(self.DEFAULT_IMG_W, self.DEFAULT_IMG_H)
+            label_size = image.size()
+            pixmap = QPixmap(self.DEFAULT_ICON_PATH).scaled(label_size, \
+                        aspectMode=Qt.KeepAspectRatio)
+            image.setPixmap(pixmap)
+            image.repaint()
             lb2 = QLabel('<b>pyPicView<b>')
             lb3 = QLabel('<i>v0.2<i>')
             lb4 = QLabel('PyPicView - простая программа для '
